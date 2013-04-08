@@ -17,6 +17,5 @@
 # 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 module BoxGrinder
-  require 'boxgrinder-core/compat/yaml19'
   require 'boxgrinder-core/compat/color'
 end

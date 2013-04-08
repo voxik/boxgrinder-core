@@ -9,7 +9,6 @@ lib/boxgrinder-core/appliance-validator.rb
 lib/boxgrinder-core/astruct.rb
 lib/boxgrinder-core/astruct_mixin.rb
 lib/boxgrinder-core/compat/color.rb
-lib/boxgrinder-core/compat/yaml19.rb
 lib/boxgrinder-core/errors.rb
 lib/boxgrinder-core/helpers/appliance-config-helper.rb
 lib/boxgrinder-core/helpers/appliance-definition-helper.rb
