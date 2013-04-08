@@ -80,9 +80,9 @@ module BoxGrinder
         appliance_b.name = 'b'
 
         File.should_receive(:exists?).ordered.with('a.appl').and_return(true)
-        File.should_receive(:exists?).ordered.with('./b.appl').and_return(true)
-
         @helper.appliance_parser.should_receive(:parse_definition).ordered.with('a.appl').and_return(appliance_a)
+
+        File.should_receive(:exists?).ordered.with('./b.appl').and_return(true)
         @helper.appliance_parser.should_receive(:parse_definition).ordered.with('./b.appl').and_return(appliance_b)
 
         @helper.read_definitions("a.appl")
@@ -115,15 +115,18 @@ module BoxGrinder
         appliance_c2.name = 'c2'
 
         File.should_receive(:exists?).ordered.with('a.appl').and_return(true)
-        File.should_receive(:exists?).ordered.with('./b2.appl').and_return(true)
-        File.should_receive(:exists?).ordered.with('./c2.appl').and_return(true)
-        File.should_receive(:exists?).ordered.with('./b1.appl').and_return(true)
-        File.should_receive(:exists?).ordered.with('./c1.appl').and_return(true)
-
         @helper.appliance_parser.should_receive(:parse_definition).ordered.with('a.appl').and_return(appliance_a)
+
+        File.should_receive(:exists?).ordered.with('./b2.appl').and_return(true)
         @helper.appliance_parser.should_receive(:parse_definition).ordered.with('./b2.appl').and_return(appliance_b2)
+
+        File.should_receive(:exists?).ordered.with('./c2.appl').and_return(true)
         @helper.appliance_parser.should_receive(:parse_definition).ordered.with('./c2.appl').and_return(appliance_c2)
+
+        File.should_receive(:exists?).ordered.with('./b1.appl').and_return(true)
         @helper.appliance_parser.should_receive(:parse_definition).ordered.with('./b1.appl').and_return(appliance_b1)
+
+        File.should_receive(:exists?).ordered.with('./c1.appl').and_return(true)
         @helper.appliance_parser.should_receive(:parse_definition).ordered.with('./c1.appl').and_return(appliance_c1)
 
         @helper.read_definitions("a.appl")
@@ -154,13 +157,15 @@ module BoxGrinder
         appliance_c.name = 'c'
 
         File.should_receive(:exists?).ordered.with('a.appl').and_return(true)
-        File.should_receive(:exists?).ordered.with('./b2.appl').and_return(true)
-        File.should_receive(:exists?).ordered.with('./c.appl').and_return(true)
-        File.should_receive(:exists?).ordered.with('./b1.appl').and_return(true)
-
         @helper.appliance_parser.should_receive(:parse_definition).ordered.with('a.appl').and_return(appliance_a)
+
+        File.should_receive(:exists?).ordered.with('./b2.appl').and_return(true)
         @helper.appliance_parser.should_receive(:parse_definition).ordered.with('./b2.appl').and_return(appliance_b2)
+
+        File.should_receive(:exists?).ordered.with('./c.appl').and_return(true)
         @helper.appliance_parser.should_receive(:parse_definition).ordered.once.with('./c.appl').and_return(appliance_c)
+
+        File.should_receive(:exists?).ordered.with('./b1.appl').and_return(true)
         @helper.appliance_parser.should_receive(:parse_definition).ordered.with('./b1.appl').and_return(appliance_b1)
 
         @helper.read_definitions("a.appl")
@@ -229,11 +234,13 @@ module BoxGrinder
 
 
           File.should_receive(:exists?).with('a.appl').and_return(true)
-          File.should_receive(:exists?).with('./b.appl').and_return(true)
-          File.should_not_receive(:exists?).ordered.with('./a.appl')
-
           @helper.appliance_parser.should_receive(:parse_definition).ordered.with('a.appl').and_return(appliance_a)
+
+
+          File.should_receive(:exists?).with('./b.appl').and_return(true)
           @helper.appliance_parser.should_receive(:parse_definition).ordered.with('./b.appl').and_return(appliance_b)
+
+          File.should_not_receive(:exists?).ordered.with('./a.appl')
           @helper.appliance_parser.should_not_receive(:parse_definition).ordered.with('./a.appl')
 
           @helper.read_definitions("a.appl")
