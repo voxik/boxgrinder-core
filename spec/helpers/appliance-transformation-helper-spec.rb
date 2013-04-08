@@ -40,7 +40,7 @@ module BoxGrinder
 
     describe ".to_0_9_0" do
       it "should remove excludes section" do
-        appl = "name: test-appl\nos:\n  name: fedora\n  version: 15\npackages:\n  includes:\n    - @base\n    - emacs\n  excludes:\n    - this-does-nothing"
+        appl = "name: test-appl\nos:\n  name: fedora\n  version: 15\npackages:\n  includes:\n    - '@base'\n    - emacs\n  excludes:\n    - this-does-nothing"
         out = @helper.to_0_9_0(YAML.load(appl))
         out['packages'].should == ["@base", "emacs"]
         out['excludes'].should == nil
